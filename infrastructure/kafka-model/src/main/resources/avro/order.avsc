@@ -1,0 +1,24 @@
+{
+  "type": "record",
+  "name": "Order",
+  "namespace": "com.rolandsall.kafka.template.order.avro.model",
+  "fields": [
+    {
+      "name": "orderId",
+      "type": "string"
+    },
+    {
+      "name": "orderStatus",
+      "type": {
+        "type": "enum",
+        "name": "OrderStatus",
+        "symbols": ["PENDING", "DELIVERING", "DELIVERED"]
+      }
+    }
+  ]
+}
+
+
+
+
+
