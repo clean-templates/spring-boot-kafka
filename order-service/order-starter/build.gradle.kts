@@ -8,7 +8,6 @@ version = "unspecified"
 
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter")
     implementation(project(":order-service:order-domain:order-core"))
 
