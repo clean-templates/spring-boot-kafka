@@ -8,9 +8,13 @@ version = "unspecified"
 
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
+    // internal projects
     implementation(project(":order-service:order-domain:order-core"))
+    implementation(project(":order-service:order-application"))
 
+
+    // frameworks and 3rd parties
+    implementation("org.springframework.boot:spring-boot-starter")
     testImplementation ("org.springframework.boot:spring-boot-starter-test")
 }
 

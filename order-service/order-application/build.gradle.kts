@@ -1,6 +1,8 @@
 plugins {
     id("myproject.spring-conventions")
     id("myproject.testing-conventions")
+    id("myproject.common-conventions")
+    id("myproject.lombok-conventions")
 }
 
 group = "com.rolandsall"
