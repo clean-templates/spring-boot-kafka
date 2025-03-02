@@ -1,5 +1,5 @@
 rootProject.name = "kafka-template"
-include("application-example")
+include("order-service")
 include("infrastructure")
 include("infrastructure:kafka-producer")
 include("infrastructure:kafka-consumer")
