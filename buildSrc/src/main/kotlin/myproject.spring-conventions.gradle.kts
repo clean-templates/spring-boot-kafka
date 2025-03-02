@@ -1,4 +1,3 @@
-
 plugins {
     java
     `java-library`
@@ -21,6 +20,13 @@ dependencyManagement {
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
         mavenBom("org.testcontainers:testcontainers-bom:${property("testContainers")}")
     }
+}
+
+dependencies {
+    implementation("org.projectlombok:lombok:1.18.24")
+    compileOnly("org.projectlombok:lombok:1.18.24")
+    annotationProcessor("org.projectlombok:lombok:1.18.24")
+
 }
 
 
