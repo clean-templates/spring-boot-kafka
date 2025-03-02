@@ -1,5 +1,6 @@
 plugins {
     java
+    id("myproject.spring-conventions")
 }
 
 repositories {
@@ -10,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.kafka:spring-kafka:3.0.5")
+    implementation("org.springframework.kafka:spring-kafka")
     implementation("io.confluent:kafka-avro-serializer:7.3.3") {
         exclude(group = "org.slf4j", module = "slf4j-log4j12")
         exclude(group = "log4j", module = "log4j")

@@ -1,7 +1,6 @@
 plugins {
     java
     id("myproject.kafka-avro-conventions")
-    id("myproject.spring-conventions")
 
 }
 
