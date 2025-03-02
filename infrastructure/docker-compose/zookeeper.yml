@@ -16,5 +16,6 @@ services:
     volumes:
       - "./volumes/zookeeper/data:/var/lib/zookeeper/data"
       - "./volumes/zookeeper/transactions:/var/lib/zookeeper/log"
+    user: root
     networks:
       - ${GLOBAL_NETWORK:-kafka}
