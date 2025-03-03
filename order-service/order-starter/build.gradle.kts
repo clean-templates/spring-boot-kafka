@@ -11,6 +11,7 @@ dependencies {
     // internal projects
     implementation(project(":order-service:order-domain:order-core"))
     implementation(project(":order-service:order-application"))
+    implementation(project(":common"))
 
 
     // frameworks and 3rd parties

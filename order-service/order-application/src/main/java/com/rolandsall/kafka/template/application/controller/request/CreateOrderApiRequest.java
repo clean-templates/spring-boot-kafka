@@ -5,11 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class CreateOrderApiRequest {
-    private OrderItemApiRequest orderItems;
+    private List<OrderItemApiRequest> orderItems;
     private OrderAddressApiRequest address;
 }
