@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -32,7 +33,8 @@ public class CreateOrderCommand implements Command {
     @Builder
     public static class OrderItemCommand {
         private String productId;
-        private int quantity;
+        private Integer quantity;
+        private BigDecimal price;
     }
 
 }

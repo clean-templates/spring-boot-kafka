@@ -1,6 +1,5 @@
-package com.rolandsall.kafka.template.application.controller.request;
+package com.rolandsall.kafka.template.entity;
 
-import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,13 +7,21 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Builder
-public class OrderItemApiRequest {
+public class OrderItem {
+    private String orderId;
+    private Integer orderItemId;
     private String productId;
-    @Min(1)
     private Integer quantity;
     private BigDecimal price;
+
+    void initialize(String orderId, Integer orderItemId) {
+        this.orderId = orderId;
+        this.orderItemId = orderItemId;
+    }
+
+
 }

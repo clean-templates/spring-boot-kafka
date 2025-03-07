@@ -15,6 +15,7 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation(project(":common"))
+    implementation(project(":order-service:order-domain:order-core"))
 }
 
 tasks.test {

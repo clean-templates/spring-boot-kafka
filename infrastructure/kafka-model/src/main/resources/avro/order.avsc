@@ -1,18 +1,63 @@
 {
   "type": "record",
-  "name": "Order",
+  "name": "OrderAvroModel",
   "namespace": "com.rolandsall.kafka.template.order.avro.model",
   "fields": [
     {
-      "name": "orderId",
+      "name": "id",
       "type": "string"
+    },
+    {
+      "name": "trackingId",
+      "type": {
+        "type": "string"
+      }
     },
     {
       "name": "orderStatus",
       "type": {
         "type": "enum",
         "name": "OrderStatus",
-        "symbols": ["PENDING", "DELIVERING", "DELIVERED"]
+        "symbols": ["PENDING", "PAID", "APPROVED", "CANCELLING", "CANCELLED"]
+      }
+    },
+    {
+      "name": "orderItemList",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "OrderItem",
+          "fields": [
+            {
+              "name": "orderId",
+              "type": "string"
+            },
+            {
+              "name": "orderItemId",
+              "type": "int"
+            },
+            {
+              "name": "productId",
+              "type": "string"
+            },
+            {
+              "name": "quantity",
+              "type": "int"
+            },
+            {
+              "name": "price",
+              "type": "long"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "createdAt",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
       }
     }
   ]

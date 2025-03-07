@@ -35,6 +35,7 @@ public class OrderController implements OrderApi {
                 .map(item -> CreateOrderCommand.OrderItemCommand.builder()
                         .productId(item.getProductId())
                         .quantity(item.getQuantity())
+                        .price(item.getPrice())
                         .build())
                 .collect(Collectors.toList());
 
