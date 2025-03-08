@@ -30,7 +30,7 @@ public class OrderKafkaPublisher implements OrderMessagePublisher {
             kafkaProducer.send(orderTopicConfiguration.getOrderTopic(), orderCreatedEvent.getOrder().getId(), orderCreatedEventAvro, handleResultCallback(orderCreatedEvent));
             log.info("Order created event published to kafka with id {}", orderCreatedEvent.getOrder().getId());
         } catch (Exception e) {
-            log.error("Failed to publish order created event to kafka with id {}", orderCreatedEvent.getOrder().getId());
+            log.error("Failed to publish order created event to kafka with id {}", orderCreatedEvent.getOrder().getId(), e);
         }
 
     }

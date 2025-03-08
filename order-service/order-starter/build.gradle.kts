@@ -1,6 +1,7 @@
 plugins {
     id("myproject.spring-conventions")
     id("myproject.testing-conventions")
+    id("myproject.kafka-avro-conventions")
 }
 
 group = "com.rolandsall"
@@ -9,9 +10,13 @@ version = "unspecified"
 
 dependencies {
     // internal projects
-    implementation(project(":order-service:order-domain:order-core"))
     implementation(project(":order-service:order-application"))
+    implementation(project(":order-service:order-domain:order-core"))
+    implementation(project(":order-service:order-domain:order-application-service"))
+    implementation(project(":order-service:infrastructure"))
     implementation(project(":common"))
+
+
 
 
     // frameworks and 3rd parties

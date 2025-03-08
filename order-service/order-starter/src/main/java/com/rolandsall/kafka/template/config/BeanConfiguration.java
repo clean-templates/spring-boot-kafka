@@ -12,4 +12,6 @@ public class BeanConfiguration {
     public OrderService orderService(){
         return new OrderDomainService();
     }
+
+
 }
