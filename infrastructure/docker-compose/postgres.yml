@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  postgresql:
+    container_name: postgres-container
+    hostname: postgresql
+    image: bitnami/postgresql:16.4.0
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: order
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - "./volumes/postgres:/var/lib/postgresql/data"
+    networks:
+        - ${GLOBAL_NETWORK:-kafka}
