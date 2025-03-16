@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "Envelope",
-  "namespace": "debezium.public.customer",
+  "namespace": "debezium.schema.customer",
   "fields": [
     {
       "name": "before",
@@ -36,7 +36,7 @@
               "default": null
             }
           ],
-          "connect.name": "debezium.public.customer.Value"
+          "connect.name": "debezium.schema.customer.Value"
         }
       ],
       "default": null
@@ -178,5 +178,5 @@
     }
   ],
   "connect.version": 1,
-  "connect.name": "debezium.public.customer.Envelope"
+  "connect.name": "debezium.schema.customer.Envelope"
 }

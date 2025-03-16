@@ -1,0 +1,43 @@
+POST /connectors HTTP/1.1
+Host: localhost:8083
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "customer-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "tasks.max": "1",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "password",
+    "database.dbname" : "order",
+    "database.server.name": "PostgreSQL-16",
+    "table.include.list": "schema.customer",
+    "topic.prefix": "debezium",
+    "tombstones.on.delete" : "false",
+    "slot.name" : "order_customer_slot",
+    "plugin.name": "pgoutput"
+  }
+}
+
+###
+
+http://localhost:8083/connectors
+
+
+
+
+###
+# curl -X DELETE http://localhost:8083/connectors/my-connector
+DELETE http://localhost:8083/connectors/customer-connector
+
+
+
+
+###
+
+
+
+

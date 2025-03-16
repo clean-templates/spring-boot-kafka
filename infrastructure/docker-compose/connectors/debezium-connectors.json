@@ -1,0 +1,20 @@
+{
+  "name": "customer-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "tasks.max": "1",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "password",
+    "database.dbname" : "order",
+    "database.server.name": "PostgreSQL-16",
+    "table.include.list": "public.customer",
+    "topic.prefix": "debezium",
+    "tombstones.on.delete" : "false",
+    "slot.name" : "order_customer_slot",
+    "plugin.name": "pgoutput"
+  }
+}
+
+
