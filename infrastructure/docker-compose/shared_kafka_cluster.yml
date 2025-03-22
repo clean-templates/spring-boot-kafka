@@ -7,14 +7,15 @@ services:
     command: tcp broker:9092 --log stdout --authtoken $NGROK_AUTH_TOKEN
     ports:
       - 4040:4040
-
+    networks:
+      - ${GLOBAL_NETWORK:-kafka}
   broker:
     image: confluentinc/cp-kafka:${KAFKA_VERSION}
     container_name: broker
     depends_on:
       - ngrok
     environment:
-      KAFKA_BROKER_ID: 1
+      KAFKA_BROKER_ID: 4
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_LISTENERS: DOCKER://broker:9092, NGROK://broker:19092
       KAFKA_ADVERTISED_LISTENERS: DOCKER://broker:9092
@@ -43,3 +44,8 @@ services:
         export KAFKA_ADVERTISED_LISTENERS="$$KAFKA_ADVERTISED_LISTENERS, $$NGROK_LISTENER"
         echo "KAFKA_ADVERTISED_LISTENERS is set to " $$KAFKA_ADVERTISED_LISTENERS
         /etc/confluent/docker/run
+    volumes:
+      - "./volumes/kafka/broker-3:/var/lib/kafka/data"
+    user: root
+    networks:
+      - ${GLOBAL_NETWORK:-kafka}
