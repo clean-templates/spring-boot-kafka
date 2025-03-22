@@ -1,0 +1,23 @@
+### Trigger createOrder
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "address": {
+    "street": "123 Main St",
+    "postalCode": "12345",
+    "city": "Anytown"
+  },
+  "orderItems": [
+    {
+      "productId": "product-1",
+      "quantity": 2,
+      "price": 19.99
+    },
+    {
+      "productId": "product-2",
+      "quantity": 1,
+      "price": 9.99
+    }
+  ]
+}
