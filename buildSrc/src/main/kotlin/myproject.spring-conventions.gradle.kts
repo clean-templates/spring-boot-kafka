@@ -10,6 +10,14 @@ repositories {
     mavenCentral()
 }
 
+java {
+    toolchain {
+       languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
+
+
 extra["springCloudVersion"] = "2024.0.0"
 extra["springBootVersion"] = "3.4.2"
 extra["testContainers"] = "1.20.4"
