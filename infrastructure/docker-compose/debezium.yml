@@ -1,6 +1,7 @@
 version: '3.7'
 services:
   kafka-debezium-connector:
+    platform: linux/arm64/v8
     image: debezium/connect:${DEBEZIUM_VERSION}
     ports:
       - 8083:8083

@@ -1,7 +1,7 @@
 package com.rolandsall.kafka.template.infrastructure.messaging;
 
 import com.rolandsall.kafka.template.consumer.KafkaConsumer;
-import debezium.schema.customer.Envelope;
+import debezium.customer.customer.Envelope;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
@@ -14,7 +14,7 @@ import java.util.List;
 public class CustomerMessageListener implements KafkaConsumer<Envelope> {
 
     @Override
-    @KafkaListener(topics = "debezium.schema.customer", groupId = "customer-group-id")
+    @KafkaListener(topics = "debezium.customer.customer", groupId = "customer-group-id")
     public void receive(@Payload List<Envelope> messages,
                         @Header(KafkaHeaders.RECEIVED_KEY) List<Long> keys,
                         @Header(KafkaHeaders.RECEIVED_PARTITION) List<Integer> partitions,

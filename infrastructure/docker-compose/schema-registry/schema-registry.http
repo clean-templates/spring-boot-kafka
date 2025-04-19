@@ -1,7 +1,6 @@
 http://localhost:8081/subjects
 
 ###
-http://localhost:8081/subjects/debezium.schema.customer-value/versions/latest/schema
-
+http://localhost:8081/subjects/debezium.customer.customer-value/versions/latest/schema
 
 

@@ -14,7 +14,7 @@ Accept: application/json
     "database.password": "password",
     "database.dbname" : "order",
     "database.server.name": "PostgreSQL-16",
-    "table.include.list": "schema.customer",
+    "table.include.list": "customer.customer",
     "topic.prefix": "debezium",
     "tombstones.on.delete" : "false",
     "slot.name" : "order_customer_slot",

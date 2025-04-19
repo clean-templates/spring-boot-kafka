@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "Envelope",
-  "namespace": "debezium.schema.customer",
+  "namespace": "debezium.customer.customer",
   "fields": [
     {
       "name": "before",
@@ -12,8 +12,12 @@
           "name": "Value",
           "fields": [
             {
-              "name": "customer_id",
-              "type": "string"
+              "name": "id",
+              "type": {
+                "type": "int",
+                "connect.default": 0
+              },
+              "default": 0
             },
             {
               "name": "first_name",
@@ -28,15 +32,49 @@
               "type": "string"
             },
             {
-              "name": "phone",
+              "name": "phone_number",
               "type": [
                 "null",
                 "string"
               ],
               "default": null
+            },
+            {
+              "name": "address",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "created_at",
+              "type": [
+                {
+                  "type": "long",
+                  "connect.version": 1,
+                  "connect.default": 0,
+                  "connect.name": "io.debezium.time.MicroTimestamp"
+                },
+                "null"
+              ],
+              "default": 0
+            },
+            {
+              "name": "updated_at",
+              "type": [
+                {
+                  "type": "long",
+                  "connect.version": 1,
+                  "connect.default": 0,
+                  "connect.name": "io.debezium.time.MicroTimestamp"
+                },
+                "null"
+              ],
+              "default": 0
             }
           ],
-          "connect.name": "debezium.schema.customer.Value"
+          "connect.name": "debezium.customer.customer.Value"
         }
       ],
       "default": null
@@ -178,5 +216,5 @@
     }
   ],
   "connect.version": 1,
-  "connect.name": "debezium.schema.customer.Envelope"
+  "connect.name": "debezium.customer.customer.Envelope"
 }
