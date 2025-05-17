@@ -1,0 +1,28 @@
+{
+  "name": "mongodb-customer-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.mongodb.MongoDbConnector",
+    "tasks.max": "1",
+    "mongodb.connection.string": "mongodb://admin:password@mongodb:27017/orderdb?replicaSet=rs0&authSource=admin",
+    "mongodb.hosts": "rs0/mongodb:27017",
+    "mongodb.name": "MongoDB-Customer",
+    "mongodb.user": "admin",
+    "mongodb.password": "password",
+    "collection.include.list": "orderdb.order",
+    "topic.prefix": "mongodb.debezium",
+    "tombstones.on.delete": "false",
+    "snapshot.mode": "initial",
+    "database.include.list": "orderdb",
+    "key.converter": "io.confluent.connect.avro.AvroConverter",
+    "key.converter.schema.registry.url": "http://schema-registry:8081",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter.schema.registry.url": "http://schema-registry:8081",
+    "transforms": "unwrap",
+    "transforms.unwrap.type": "io.debezium.connector.mongodb.transforms.ExtractNewDocumentState",
+    "transforms.unwrap.drop.tombstones": "false",
+    "transforms.unwrap.delete.handling.mode": "rewrite",
+    "transforms.unwrap.add.fields": "op,source.ts_ms,source.db,source.collection",
+    "transforms.unwrap.add.headers": "op",
+    "field.renames": "_id:Id,firstName:first_name,lastName:last_name,createdAt:created_at"
+  }
+}

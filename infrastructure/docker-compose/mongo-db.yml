@@ -1,0 +1,42 @@
+version: '3.7'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    command: mongod --replSet rs0 --bind_ip_all
+    environment:
+      MONGO_INITDB_DATABASE: orderdb
+    volumes:
+      - "./volumes/mongodb:/data/db"
+    networks:
+      - ${GLOBAL_NETWORK:-mongodb}
+    healthcheck:
+      test: ["CMD","mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  mongo-init:
+    image: mongo:7.0
+    container_name: mongo-init
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    command: >
+      bash -c "
+        mongosh --host mongodb:27017 --eval '
+          rs.initiate({
+            _id: \"rs0\",
+            members: [
+              { _id: 0, host: \"mongodb:27017\" }
+            ]
+          });
+        ' &&
+        echo 'Replica set initialized successfully'
+      "
+    networks:
+      - ${GLOBAL_NETWORK:-mongodb}

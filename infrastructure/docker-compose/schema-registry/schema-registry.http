@@ -1,6 +1,6 @@
 http://localhost:8081/subjects
 
 ###
-http://localhost:8081/subjects/debezium.customer.customer-value/versions/latest/schema
+http://localhost:8081/subjects/mongodb.debezium.orderdb.orders-value/versions/latest/schema
 
 
